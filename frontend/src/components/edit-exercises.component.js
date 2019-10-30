@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class EditExercises extends Component {
+class EditExercises extends Component {
   render() {
     return (
       <div>
@@ -9,3 +9,5 @@ export default class EditExercises extends Component {
     );
   }
 }
+
+export default EditExercises;
