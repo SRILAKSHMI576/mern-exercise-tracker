@@ -1,6 +1,7 @@
 const router = require("express").Router();
 let user = require("../models/user.model");
 
+// to get all users
 router.route("/").get((req, res) => {
   user
     .find()
@@ -8,6 +9,7 @@ router.route("/").get((req, res) => {
     .catch(err => res.status(400).json("Error: " + err));
 });
 
+//to insert a new user
 router.route("/").post((req, res) => {
   const username = req.body.username;
 
@@ -19,6 +21,13 @@ router.route("/").post((req, res) => {
       res.status(201);
       return res.json(doc);
     })
+    .catch(err => res.status(400).json("Error: " + err));
+});
+
+router.route("/:id").get((req, res) => {
+  user
+    .findById(req.params.id)
+    .then(user => res.json(user))
     .catch(err => res.status(400).json("Error: " + err));
 });
 module.exports = router;
