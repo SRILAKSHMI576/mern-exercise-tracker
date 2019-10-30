@@ -24,10 +24,37 @@ router.route("/").post((req, res) => {
     .catch(err => res.status(400).json("Error: " + err));
 });
 
+//to get a single user
 router.route("/:id").get((req, res) => {
   user
     .findById(req.params.id)
     .then(user => res.json(user))
+    .catch(err => res.status(400).json("Error: " + err));
+});
+
+// to delete a user
+router.route("/:id").delete((req, res) => {
+  user
+    .findByIdAndDelete(req.params.id)
+    .then(user => {
+      res.status(204);
+      return res.json(user);
+    })
+    .catch(err => res.status(400).json("Error: " + err));
+});
+
+// to update to user
+router.route("/:id").put((req, res) => {
+  user
+    .findById(req.params.id)
+    .then(user => {
+      user.username = req.body.username;
+
+      user
+        .save()
+        .then(() => res.json(user))
+        .catch(err => res.status(400).json("Error: " + err));
+    })
     .catch(err => res.status(400).json("Error: " + err));
 });
 module.exports = router;
