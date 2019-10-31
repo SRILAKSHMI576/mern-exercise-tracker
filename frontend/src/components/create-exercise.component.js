@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 class CreateExercises extends Component {
   constructor(props) {
@@ -10,6 +10,7 @@ class CreateExercises extends Component {
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangeDuration = this.onChangeDuration.bind(this);
     this.onChangeDate = this.onChangeDate.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       username: " ",
@@ -106,7 +107,7 @@ class CreateExercises extends Component {
               onChange={this.onChangeDuration}
             />
           </div>
-          {/* <div className="form-group">
+          <div className="form-group">
             <label>Date: </label>
             <div>
               <DatePicker
@@ -122,7 +123,7 @@ class CreateExercises extends Component {
               value="Create Exercise Log"
               className="btn btn-primary"
             />
-          </div> */}
+          </div>
         </form>
       </div>
     );
