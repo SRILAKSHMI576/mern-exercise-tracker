@@ -65,7 +65,27 @@ class CreateExercises extends Component {
   render() {
     return (
       <div>
-        <p>You are the Create Exercises Component</p>
+        <h3>Create a New Exercise Log:</h3>
+        <form onSubmit={this.onSubmit}>
+          <div className="form-group">
+            <label>Username: </label>
+            <select
+              ref="userInput"
+              required
+              className="form-control"
+              value={this.state.username}
+              onChange={this.onChangeUsername}
+            >
+              {this.state.users.map(function(user) {
+                return (
+                  <option key={user} value={user}>
+                    {user}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        </form>
       </div>
     );
   }
