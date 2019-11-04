@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class CreateUsers extends Component {
   constructor(props) {
@@ -17,12 +18,15 @@ class CreateUsers extends Component {
     });
   }
   onSubmit(e) {
-    e.perventDefault();
-
     const user = {
       username: this.state.username
     };
     console.log(user);
+
+    axios
+      .post("http://localhost:8080/users", user)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
 
     this.setState({
       username: ""
@@ -32,7 +36,7 @@ class CreateUsers extends Component {
     return (
       <div>
         <h3>Create a New Exercise Log:</h3>
-        <form onSubmit={this.onSubmit}>
+        <div>
           <div className="form-group">
             <label>Username: </label>
             <input
@@ -45,12 +49,13 @@ class CreateUsers extends Component {
           </div>
           <div className="form-group">
             <input
+              onClick={this.onSubmit}
               type="submit"
               value="Create Exercise Log"
               className="btn btn-primary"
             />
           </div>
-        </form>
+        </div>
       </div>
     );
   }
