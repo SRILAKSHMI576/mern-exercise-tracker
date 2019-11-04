@@ -8,6 +8,7 @@ import EditExercise from "./components/edit-exercises.component";
 import CreateExercise from "./components/create-exercise.component";
 import CreateUsers from "./components/create-user.component";
 import ClassCounter from "./ReactHooks/classCounter";
+import HookCounter from "./ReactHooks/hookCounter";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/create" component={CreateExercise} />
         <Route path="/user" component={CreateUsers} />
         <Route path="/class-counter" component={ClassCounter} />
+        <Route path="/hook-counter" component={HookCounter} />
       </div>
     </Router>
   );
