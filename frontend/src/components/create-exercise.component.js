@@ -40,6 +40,7 @@ class CreateExercises extends Component {
   }
 
   onChangeDescription(e) {
+    //values inside description text filed => e.target.value
     this.setState({
       description: e.target.value
     });

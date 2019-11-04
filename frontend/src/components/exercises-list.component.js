@@ -15,7 +15,7 @@ class ExercisesList extends Component {
     axios
       .get("http://localhost:8080/exercises/")
       .then(response => {
-        this.setState({ exercises: response.date });
+        this.setState({ Exercises: response.data });
       })
       .catch(error => {
         console.log(error);

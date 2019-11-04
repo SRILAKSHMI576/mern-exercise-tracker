@@ -10,6 +10,8 @@ import CreateUsers from "./components/create-user.component";
 import ClassCounter from "./ReactHooks/classCounter";
 import HookCounter from "./ReactHooks/hookCounter";
 import HookCounterTwo from "./ReactHooks/HookCounterTwo";
+import HookCounterThree from "./ReactHooks/HookCounterThree";
+import HookCounterFour from "./ReactHooks/HookCounterFour";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path="/class-counter" component={ClassCounter} />
         <Route path="/hook-counter" component={HookCounter} />
         <Route path="/hook-counter-two" component={HookCounterTwo} />
+        <Route path="/hook-counter-three" component={HookCounterThree} />
+        <Route path="/hook-counter-four" component={HookCounterFour} />
       </div>
     </Router>
   );
