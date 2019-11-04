@@ -17,7 +17,7 @@ function HookCounterFour() {
   };
 
   const alertMsg = event => {
-    alert("Hello");
+    alert(username.name);
   };
   return (
     <div>
