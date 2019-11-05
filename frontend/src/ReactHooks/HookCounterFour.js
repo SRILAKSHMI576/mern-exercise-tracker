@@ -19,6 +19,7 @@ function HookCounterFour() {
   const alertMsg = event => {
     alert(username.name);
   };
+
   return (
     <div>
       <input type="text" onChange={setUsername} value={username.name} /> <br />
