@@ -14,6 +14,7 @@ import HookCounterThree from "./ReactHooks/HookCounterThree";
 import HookCounterFour from "./ReactHooks/HookCounterFour";
 import IncrementByFive from "./ReactHooks/incrementByFIve";
 import MethodProps from "./ReactHooks/MethodProps";
+import UserGreeting from "./ReactHooks/UserGreeting";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/hook-counter-four" component={HookCounterFour} />
         <Route path="/increment" component={IncrementByFive} />
         <Route path="/parent-child" component={MethodProps} />
+        <Route path="/user-greeting" component={UserGreeting} />
       </div>
     </Router>
   );
