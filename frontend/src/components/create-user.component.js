@@ -18,6 +18,8 @@ class CreateUsers extends Component {
     });
   }
   onSubmit(e) {
+    e.preventDefault();
+
     const user = {
       username: this.state.username
     };
@@ -35,8 +37,8 @@ class CreateUsers extends Component {
   render() {
     return (
       <div>
-        <h3>Create a New Exercise Log:</h3>
-        <div>
+        <h3>Create New User</h3>
+        <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Username: </label>
             <input
@@ -55,7 +57,7 @@ class CreateUsers extends Component {
               className="btn btn-primary"
             />
           </div>
-        </div>
+        </form>
       </div>
     );
   }

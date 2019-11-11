@@ -2,20 +2,40 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+const Exercise = props => (
+  <tr>
+    <td>{props.exercise.username}</td>
+    <td>{props.exercise.description}</td>
+    <td>{props.exercise.duration}</td>
+    <td>{props.exercise.date.substring(0, 10)}</td>
+    <td>
+      <Link to={"/edit/" + props.exercise._id}>edit</Link> |
+      <a
+        href="Home"
+        onClick={() => {
+          props.deleteExercise(props.exercise._id);
+        }}
+      >
+        delete
+      </a>
+    </td>
+  </tr>
+);
+
 class ExercisesList extends Component {
   constructor(props) {
     super(props);
 
     this.deleteExercise = this.deleteExercise.bind(this);
 
-    this.state = { Exercises: [] };
+    this.state = { exercises: [] };
   }
 
   componentDidMount() {
     axios
       .get("http://localhost:8080/exercises/")
       .then(response => {
-        this.setState({ Exercises: response.data });
+        this.setState({ exercises: response.data });
       })
       .catch(error => {
         console.log(error);
@@ -32,6 +52,17 @@ class ExercisesList extends Component {
     });
   }
 
+  ExercisesList() {
+    return this.state.exercises.map(currentexercise => {
+      return (
+        <Exercise
+          exercise={currentexercise}
+          delete={this.deleteExercise}
+          key={currentexercise._id}
+        />
+      );
+    });
+  }
   render() {
     return (
       <div>
@@ -46,7 +77,7 @@ class ExercisesList extends Component {
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody>{this.ExercisesList}</tbody>
+          <tbody>{this.ExercisesList()}</tbody>
         </table>
       </div>
     );

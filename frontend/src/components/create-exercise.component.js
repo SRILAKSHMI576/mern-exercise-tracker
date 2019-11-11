@@ -23,14 +23,19 @@ class CreateExercises extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:8080/exercises/").then(response => {
-      if (response.data.link > 0) {
-        this.setState({
-          users: response.data.map(user => user.username),
-          username: response.data[0].username
-        });
-      }
-    });
+    axios
+      .get("http://localhost:8080/users/")
+      .then(response => {
+        if (response.data.length > 0) {
+          this.setState({
+            users: response.data.map(user => user.username),
+            username: response.data[0].username
+          });
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   onChangeUsername(e) {
@@ -65,7 +70,7 @@ class CreateExercises extends Component {
       username: this.state.username,
       description: this.state.description,
       duration: this.state.duration,
-      date: this.state.time
+      date: this.state.date
     };
     console.log(exercise);
 
