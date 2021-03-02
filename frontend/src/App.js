@@ -15,6 +15,7 @@ import HookCounterFour from "./ReactHooks/HookCounterFour";
 import IncrementByFive from "./ReactHooks/incrementByFIve";
 import MethodProps from "./ReactHooks/MethodProps";
 import UserGreeting from "./ReactHooks/UserGreeting";
+import dateNow from "./ReactHooks/dateNow";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/increment" component={IncrementByFive} />
         <Route path="/parent-child" component={MethodProps} />
         <Route path="/user-greeting" component={UserGreeting} />
+        <Route path="/date-now" component={dateNow} />
       </div>
     </Router>
   );

@@ -11,6 +11,8 @@ export class UserGreeting extends Component {
 
   render() {
     return this.state.isLoggedIn && <div>Hello Srilakshmi</div>;
+    //this.state.isLoggedIn || <div>Hello Srilakshmi</div>;
+
     //1........
     // return this.state.isLoggedIn ? (
     //   <div>Hello Srilakshmi</div>
